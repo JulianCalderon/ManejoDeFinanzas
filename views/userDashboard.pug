@@ -1,5 +1,9 @@
 extends templates/basicHtml
 block bodyContent
-	h2#mainTitle.mainTitle
-	#resultContainer
+	.mainContainer
+		.mainHeader
+			include templates/partials/mainHeader
+		.mainContent
+			h2#mainTitle.mainTitle
+			#resultContainer
 	include templates/partials/scripts

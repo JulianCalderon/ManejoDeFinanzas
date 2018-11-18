@@ -26,11 +26,11 @@ function generateChart(url){
     });
 }
 function createFiltersDiv(){
-    let newDiv = createNewElement('div');
+    let newDiv = createNewElement('div', [{name:'className', value:'filtersContainer'}]);
     let generalButtonText = createNewTextNode('General');
     let filterSelect = createNewElement('select');
     let filterDateCheck = createNewElement('input', [{name:'type', value:'checkbox'}]);
-    let generalButton = createNewElement('button');
+    let generalButton = createNewElement('button', [{name:'className', value:'generalButton'}]);
     let toogleComeButton = createNewElement('button');
     let toogleText = createNewTextNode('Ingresos');
     let initialDate = createNewElement('input', inputDateAttributes);
