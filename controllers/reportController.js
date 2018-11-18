@@ -9,38 +9,44 @@ exports.index = (req, res) => {
 	});
 }
 exports.getDailyIncomes = (req, res) => {
-	let currentDate = dateController.getCurrentDate().replace(/-/g, '');
+	let currentDate = req.query.firstDay || dateController.getCurrentProcedureDate();
 	let query = `CALL graficoIngresos(${currentDate}, ${currentDate}, ${req.user.doc_usuario})`;
 	db.connection.query(query, (err, result) => {
 		res.send(result[0]);
 	});
 }
 exports.getDailyOutcomes = (req, res) => {
-	let query = `CALL graficoGastos(20181116, 20181116, ${req.user.doc_usuario})`;
+	let currentDate = req.query.firstDay || dateController.getCurrentProcedureDate();
+	let query = `CALL graficoGastos(${currentDate}, ${currentDate}, ${req.user.doc_usuario})`;
 	db.connection.query(query, (err, result) => {
 		res.send(result[0]);
 	});
 }
 exports.getWeeklyIncomes = (req, res) => {
-	let query = `CALL graficoIngresos(20181116, 20181116, ${req.user.doc_usuario})`;
+	let currentWeek = (req.query.firstDay && req.query.lastDay) ? {firstDay:req.query.firstDay, lastDay:req.query.lastDay} : dateController.getCurrentProcedureWeek();
+	let query = `CALL graficoIngresos(${currentWeek.firstDay}, ${currentWeek.lastDay}, ${req.user.doc_usuario})`;
 	db.connection.query(query, (err, result) => {
 		res.send(result[0]);
 	});
 }
 exports.getWeeklyOutcomes = (req, res) => {
-	let query = `CALL graficoGastos(20181116, 20181116, ${req.user.doc_usuario})`;
+	let currentWeek = (req.query.firstDay && req.query.lastDay) ? {firstDay:req.query.firstDay, lastDay:req.query.lastDay} : dateController.getCurrentProcedureWeek();
+	let query = `CALL graficoGastos(${currentWeek.firstDay}, ${currentWeek.lastDay}, ${req.user.doc_usuario})`;
 	db.connection.query(query, (err, result) => {
 		res.send(result[0]);
 	});
 }
 exports.getMonthlyIncomes = (req, res) => {
-	let query = `CALL graficoIngresos(20181116, 20181116, ${req.user.doc_usuario})`;
+	let currentMonth = (req.query.firstDay && req.query.lastDay) ? {firstDay:req.query.firstDay, lastDay:req.query.lastDay} : dateController.getCurrentProcedureMonth();
+	let query = `CALL graficoIngresos(${currentMonth.firstDay}, ${currentMonth.lastDay}, ${req.user.doc_usuario})`;
+	console.log(query);
 	db.connection.query(query, (err, result) => {
 		res.send(result[0]);
 	});
 }
 exports.getMonthlyOutcomes = (req, res) => {
-	let query = `CALL graficoGastos(20181116, 20181116, ${req.user.doc_usuario})`;
+	let currentMonth = (req.query.firstDay && req.query.lastDay) ? {firstDay:req.query.firstDay, lastDay:req.query.lastDay} : dateController.getCurrentProcedureMonth();
+	let query = `CALL graficoGastos(${currentMonth.firstDay}, ${currentMonth.lastDay}, ${req.user.doc_usuario})`;
 	db.connection.query(query, (err, result) => {
 		res.send(result[0]);
 	});
