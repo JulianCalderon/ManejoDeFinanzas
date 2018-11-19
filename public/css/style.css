@@ -6,7 +6,7 @@
 .mainContainer {
   display: grid;
   height: 100vh;
-  width: 100vw;
+  min-width: 100vw;
   grid-template-columns: 1fr 5fr 1fr;
   grid-template-rows: 1fr 8fr;
 }
@@ -23,6 +23,7 @@
 }
 
 .mainContent {
+  max-height: 85vh;
   grid-column: 2/3;
   grid-row: 2/3;
   display: grid;
@@ -34,18 +35,12 @@
   align-self: center;
 }
 
-#tableOfResults {
-  width: 100%;
-}
-
 #resultContainer {
-  height: 75vh;
   display: grid;
-  grid-template-rows: 1fr 10fr;
+  grid-template-rows: 0.5fr 1fr;
 }
 
 .filtersContainer {
-  background: red;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -59,6 +54,9 @@ button:nth-child(1) {
 button:nth-child(2) {
   grid-column: 4/7;
   grid-row: 1/2;
+}
+button:target {
+  display: none;
 }
 
 button:nth-child(3) {
@@ -74,6 +72,10 @@ button:nth-child(4) {
 button:nth-child(5) {
   grid-column: 5/7;
   grid-row: 2/3;
+}
+
+input[type=date] {
+  text-align: center;
 }
 
 input[type=date]:first-of-type {
@@ -98,6 +100,32 @@ input[type=checkbox] {
   grid-column: 3/5;
   grid-row: 4/5;
   place-self: center;
+}
+
+#tableOfResults {
+  width: 100%;
+  max-height: 100%;
+  border-collapse: collapse;
+}
+#tableOfResults tr td {
+  border-bottom: 1px solid black;
+  width: 15%;
+  text-align: center;
+}
+#tableOfResults tr:last-child {
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+}
+#tableOfResults tr:last-child td {
+  border-right: 1px solid black;
+  color: white;
+}
+#tableOfResults tr:last-child td select {
+  width: 100%;
+  font-weight: 1000;
+}
+#tableOfResults tr:last-child td:last-of-type {
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */

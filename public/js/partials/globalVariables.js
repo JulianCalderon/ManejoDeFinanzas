@@ -57,10 +57,6 @@ let resultsTableAttributes = [
     {
         name: 'class',
         value: 'tableOfResults'
-    },
-    {
-        name: 'border',
-        value: '1'
     }
 ];
 let mainContainer = document.getElementById('resultContainer');

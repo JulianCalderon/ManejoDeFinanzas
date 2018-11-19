@@ -16,12 +16,10 @@ document.getElementById('outcomeLink').addEventListener('click', (e) => {
 document.getElementById('dashboardLink').addEventListener('click', (e) => {
 	e.preventDefault();
 	setChartContainer();
-	generateChart('');
+	document.querySelector('.generalButton').click();
 	setTitle(e.target.innerText);
 });
 document.getElementById('dashboardLink').click();
-console.log(getDaysOfMonth());
-console.log(getWeeksOfMonth());
 function setTable(res){
 	res = JSON.parse(res);
 	let table = createNewElement('table', resultsTableAttributes);

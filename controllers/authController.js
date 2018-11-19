@@ -7,7 +7,7 @@ exports.root = (req, res) => {
 // Exportacion del cierre de sesion y respuesta
 exports.logout = (req, res) => {
 	req.logout();
-	res.send('Logout');
+	res.redirect('../user');
 }
 // Exportacion de la funcion de registro de usuario
 exports.register = (req, res) => {
