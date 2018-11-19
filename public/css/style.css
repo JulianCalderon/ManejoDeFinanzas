@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  background-color: #EAF2F8;
 }
 
 .mainContainer {
@@ -15,11 +16,21 @@
   grid-column: 1/4;
   grid-row: 1/2;
   align-self: center;
+
 }
 .mainHeader nav ul {
   display: flex;
   list-style: none;
   justify-content: space-around;
+  background-color: #091355;
+  padding: 2% 10%;
+}
+.mainHeader nav ul li a{
+  text-decoration: none;
+  list-style: none;
+  background-color: #091355;
+  color: white;
+  font-size: 180%; 
 }
 
 .mainContent {
@@ -127,5 +138,37 @@ input[type=checkbox] {
 #tableOfResults tr:last-child td:last-of-type {
   text-align: center;
 }
+
+
+form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+form h1{
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+form div input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+
+}
+form input[type=submit]{
+    width: auto;
+    padding: 10px 106px;
+    background-color: #128FEC;
+    color: white;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
 
 /*# sourceMappingURL=style.css.map */
